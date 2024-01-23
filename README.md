@@ -18,7 +18,7 @@
 
 ## Live Url: https://mushy-hen.surge.sh/
 
-## Palindrom problem solve:
+## Palindrome problem solve:
 
 <code>
   const isPalindrome = (string) => {

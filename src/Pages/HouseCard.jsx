@@ -2,10 +2,13 @@
 /* eslint-disable react/prop-types */
 
 const HouseCard = ({ house }) => {
-    const { id, city, bedrooms, bathrooms, roomSize, availability, rent } = house;
+    const { id, city, bedrooms, bathrooms, roomSize, availability, rent, image } = house;
 
     return (
         <div className="bg-white p-4 shadow-md rounded-md">
+            <div className="img" style={{ overflowX: "hidden", overflowY: "hidden" }}>
+                <img src={image} className="rounded-md hover:scale-150 transition" alt="" />
+            </div>
             <div className="font-bold text-lg mb-2">{`House in ${city}`}</div>
             <div className="text-gray-700 mb-2">{`${bedrooms} Bedrooms | ${bathrooms} Bathrooms | ${roomSize} Room Size`}</div>
             <div className="text-green-600 font-bold mb-2">{`$${rent}/month`}</div>

@@ -1,6 +1,14 @@
 import Container from "../../Components/Container";
 
 const BannerSection = () => {
+    const handleSearch = (e) => {
+        e.preventDefault();
+
+        const searchValue = e.target.search.value;
+
+        console.log(searchValue);
+    }
+
     return (
         <div className="bg-blue-700 text-white py-20">
             <Container>
@@ -11,16 +19,19 @@ const BannerSection = () => {
                             Discover a wide range of rental properties. Your perfect home is just a click away!
                         </p>
 
-                        <div className="flex flex-col w-3/5 gap-4 mx-auto">
-                            <input type="text" name="search" id="search" className="bg-transparent border border-white rounded-xl py-1" />
+                        <form onSubmit={handleSearch}>
+                            <div className="flex flex-col w-3/5 gap-4 mx-auto">
+                                <input type="text" name="search" id="search" className="bg-transparent border border-white rounded-xl py-1 px-4" />
 
-                            <button
-                                href="#search-section" // Replace with the actual ID or target of your search section
-                                className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full inline-block transition duration-300"
-                            >
-                                Start Your Search
-                            </button>
-                        </div>
+                                <button type="submit"
+                                    href="#search-section" // Replace with the actual ID or target of your search section
+                                    className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-6 rounded-full inline-block transition duration-300"
+                                >
+                                    Start Your Search
+                                </button>
+                            </div>
+                        </form>
+
                     </div>
                 </div>
             </Container>

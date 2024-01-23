@@ -5,7 +5,7 @@ const NavBar = () => {
     return (
         <div className="bg-blue-600 text-white py-4">
             <Container>
-                <div className="flex flex-wrap justify-between">
+                <div className="flex flex-wrap items-center justify-between">
                     <h1 className="text-5xl font-bold mb-4 logo">House Hunter</h1>
 
                     <div className="menu font-medium flex flex-wrap gap-4 place-items-center">
@@ -43,6 +43,10 @@ const NavBar = () => {
                         >
                             Register
                         </NavLink>
+                    </div>
+
+                    <div className="user">
+                        User
                     </div>
                 </div>
             </Container>

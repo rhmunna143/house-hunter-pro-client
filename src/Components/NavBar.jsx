@@ -1,7 +1,28 @@
-import { NavLink } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import Container from "./Container";
+import useCurrentUser from "../Hooks/useCurrentUser";
+import axios from "axios";
+import { baseUrl } from "../Hooks/util";
+import toast from "react-hot-toast";
 
 const NavBar = () => {
+const{ users} = useCurrentUser()
+    const lastUser = users.length - 1;
+    const latestUser = users[lastUser]
+
+    const handleLogout = () => {
+        axios.delete(`${baseUrl}/logout/${latestUser.email}`)
+            .then(res => {
+                if (res.data) {
+                    toast.success("Logout success");
+                    window.location.reload()
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            })
+    }
+
     return (
         <div className="bg-blue-600 text-white py-4">
             <Container>
@@ -45,9 +66,16 @@ const NavBar = () => {
                         </NavLink>
                     </div>
 
-                    <div className="user">
-                        User
-                    </div>
+                    {
+                        latestUser && <div className="user flex flex-wrap gap-2 items-center">
+
+                            <Link className="font-medium" to={"/dashboard/home"}>Dashboard</Link> |
+
+                            <p>{latestUser?.fullName}</p> |
+
+                            <button onClick={handleLogout} className="bg-green-600 px-4 py-2 rounded-xl hover:bg-blue-700">Logout</button>
+                        </div>
+                    }
                 </div>
             </Container>
         </div>

@@ -14,6 +14,8 @@ const HouseCard = ({ house }) => {
             <div className="text-green-600 font-bold mb-2">{`$${rent}/month`}</div>
             <div className="text-sm">{availability ? 'Available' : 'Not Available'}</div>
             {/* Add more details or buttons as needed */}
+
+            <button className="bg-green-600 w-full px-4 py-2 rounded-2xl hover:bg-blue-700">Rent Now</button>
         </div>
     );
 };

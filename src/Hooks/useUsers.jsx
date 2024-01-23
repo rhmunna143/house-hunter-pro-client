@@ -6,6 +6,7 @@ const useUsers = () => {
     const [users, setAllUsers] = useState([])
 
     useEffect(() => {
+
         axios.get(`${baseUrl}/users`)
             .then(res => {
                 setAllUsers(res.data)

@@ -6,6 +6,7 @@ import Register from "../Pages/Register/Register";
 import BlogPage from "../Pages/Blog/BlogPage";
 import DashLayout from "../Layouts/DashLayout";
 import DashHome from "../Pages/Dashboard/Home/DashHome";
+import ProtectedRoute from "../Components/ProtectedRoute";
 
 const router = createBrowserRouter([
     {
@@ -37,7 +38,7 @@ const router = createBrowserRouter([
 
     {
         path: "dashboard",
-        element: <DashLayout />,
+        element: <ProtectedRoute><DashLayout /></ProtectedRoute>,
         children: [
             {
                 path: "home",

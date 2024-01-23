@@ -1,5 +1,8 @@
+import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../../Hooks/util";
+import toast from "react-hot-toast";
 
 const LoginForm = () => {
     const [formData, setFormData] = useState({
@@ -14,7 +17,25 @@ const LoginForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Implement your login logic here
+        // Implemented login logic here
+
+        axios.post(`${baseUrl}/users/current-user`, formData, { withCredentials: true })
+            .then((response) => {
+                console.log(response.data);
+                toast.success("Login Success.")
+                window.location.reload()
+                // Handle successful login, e.g., store user data in state or context
+            })
+            .catch((error) => {
+                console.error(error);
+                if (error.response.status == 402) {
+                    toast.error(error.response.data.message)
+                }
+                if (error.response.status == 401) {
+                    toast.error(error.response.data.message)
+                }
+                // Handle login error, e.g., show error message to the user
+            });
         console.log('Form data submitted:', formData);
     };
 

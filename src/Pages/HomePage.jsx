@@ -24,6 +24,10 @@ const HomePage = () => {
         const fetchedHouses = [
             // Sample house data
             { id: 1, city: 'New York', bedrooms: 2, bathrooms: 1, roomSize: 'Medium', availability: true, rent: 1200, image: 'https://i.ibb.co/6s0nzNP/todd-kent-178j8t-Jr-Nlc-unsplash.jpg' },
+
+            { id: 1, city: 'New York', bedrooms: 2, bathrooms: 1, roomSize: 'Medium', availability: true, rent: 1200, image: 'https://i.ibb.co/6s0nzNP/todd-kent-178j8t-Jr-Nlc-unsplash.jpg' },
+            
+            { id: 1, city: 'New York', bedrooms: 2, bathrooms: 1, roomSize: 'Medium', availability: true, rent: 1200, image: 'https://i.ibb.co/6s0nzNP/todd-kent-178j8t-Jr-Nlc-unsplash.jpg' },
             // Add more house data as needed
         ];
 

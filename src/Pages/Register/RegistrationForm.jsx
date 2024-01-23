@@ -1,14 +1,21 @@
+import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import { baseUrl } from "../../Hooks/util";
+import useExistingUser from "../../Hooks/useExistingUser";
+import toast from "react-hot-toast";
 
 const RegistrationForm = () => {
-    const [formData, setFormData] = useState ({
+    const [formData, setFormData] = useState({
         fullName: '',
         role: 'House Renter', // Default role
         phoneNumber: '',
         email: '',
         password: '',
     });
+
+    const isExist = useExistingUser(formData.email)
+
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -17,8 +24,22 @@ const RegistrationForm = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Implement your registration logic here
-        console.log('Form data submitted:', formData);
+        // Implemented registration logic here
+
+        if (isExist) {
+            axios.post(`${baseUrl}/users`, formData, {
+                withCredentials: true
+            })
+                .then(res => {
+                    console.log(res.data);
+                })
+                .catch(err => {
+                    console.log(err);
+                })
+            console.log('Form data submitted:', formData);
+        } else {
+            toast.error("User already Exist! Please login.")
+        }
     };
 
     return (

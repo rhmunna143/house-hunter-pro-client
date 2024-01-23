@@ -1,9 +1,12 @@
+import Container from "../../Components/Container";
 import RegistrationForm from "./RegistrationForm";
 
 const Register = () => {
     return (
         <div>
-            <RegistrationForm />
+            <Container>
+                <RegistrationForm />
+            </Container>
         </div>
     );
 };

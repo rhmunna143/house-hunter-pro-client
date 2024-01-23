@@ -1,9 +1,12 @@
+import Container from "../../Components/Container";
 import LoginForm from "./LoginForm";
 
 const Login = () => {
     return (
         <div>
-            <LoginForm />
+            <Container>
+                <LoginForm />
+            </Container>
         </div>
     );
 };

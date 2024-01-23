@@ -1,5 +1,7 @@
 
 const BlogPage = () => {
+
+
     return (
         <div>
             Blog

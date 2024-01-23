@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 const LoginForm = () => {
     const [formData, setFormData] = useState({
@@ -18,7 +19,7 @@ const LoginForm = () => {
     };
 
     return (
-        <div className="max-w-md mx-auto mt-8">
+        <div className="max-w-md mx-auto py-20">
             <h2 className="text-2xl font-semibold mb-4">Login</h2>
             <form onSubmit={handleSubmit}>
                 <div className="mb-4">
@@ -57,6 +58,7 @@ const LoginForm = () => {
                 >
                     Login
                 </button>
+                <p className="mt-4">No account? <Link to={"/register"} className="text-blue-600 hover:text-blue-700">Register</Link> </p>
             </form>
         </div>
     );

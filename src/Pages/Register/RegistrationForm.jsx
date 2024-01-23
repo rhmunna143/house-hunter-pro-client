@@ -2,7 +2,6 @@ import axios from "axios";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { baseUrl } from "../../Hooks/util";
-import useExistingUser from "../../Hooks/useExistingUser";
 import toast from "react-hot-toast";
 
 const RegistrationForm = () => {
@@ -14,32 +13,33 @@ const RegistrationForm = () => {
         password: '',
     });
 
-    const isExist = useExistingUser(formData.email)
-
-
     const handleChange = (e) => {
         const { name, value } = e.target;
         setFormData((prevData) => ({ ...prevData, [name]: value }));
     };
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        // Implemented registration logic here
 
-        if (isExist) {
-            axios.post(`${baseUrl}/users`, formData, {
-                withCredentials: true
+        axios.post(`${baseUrl}/users`, formData, {
+            withCredentials: true
+        })
+            .then(res => {
+                console.log(res.data);
             })
-                .then(res => {
-                    console.log(res.data);
-                })
-                .catch(err => {
-                    console.log(err);
-                })
-            console.log('Form data submitted:', formData);
-        } else {
-            toast.error("User already Exist! Please login.")
-        }
+            .catch(err => {
+                if (err.response && err.response.status === 400) {
+                    // Handled the case where the user already exists
+                    console.error("User already exists. Please login.");
+                    toast.error("User already exists. Please login.");
+                } else {
+                    // Handled other errors
+                    console.error("Error during registration:", err.message);
+                    toast.error("Error during registration. Please try again later.");
+                }
+            });
+
+        console.log('Form data submitted:', formData);
     };
 
     return (

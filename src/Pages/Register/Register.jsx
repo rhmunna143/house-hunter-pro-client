@@ -1,8 +1,9 @@
+import RegistrationForm from "./RegistrationForm";
 
 const Register = () => {
     return (
         <div>
-            Register
+            <RegistrationForm />
         </div>
     );
 };

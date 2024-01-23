@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 const isPalindrome = (string) => {
     // Removing non-alphanumeric characters and convert to lowercase
     const cleanString = string.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();

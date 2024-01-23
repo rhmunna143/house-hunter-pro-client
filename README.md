@@ -1,8 +1,31 @@
-# React + Vite
+# House Hunter Pro
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features:
+- User Authentication (Not firebase)
+- Protected Routes
+- CRUD
+- JWT
+- SPA
 
-Currently, two official plugins are available:
+## Skills:
+- Javascript
+- React
+- MongoDB
+- Manual Auth
+- CSS
+- Tailwind CSS
+- HTML
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Live Url: https://mushy-hen.surge.sh/
+
+## Palindrom problem solve:
+
+<code>
+  const isPalindrome = (string) => {
+    // Removing non-alphanumeric characters and convert to lowercase
+    const cleanString = string.replace(/[^a-zA-Z0-9]/g, '').toLowerCase();
+
+    // Comparing the stringing with the original cleaned stringing
+    return cleanString === cleanString.split('').reverse().join('');
+}
+</code>

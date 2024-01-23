@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
 
 const HouseCard = ({ house }) => {
     const { id, city, bedrooms, bathrooms, roomSize, availability, rent } = house;
